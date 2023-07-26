@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import DExercise_board
+from .models import Exercise
 
-admin.site.register(DExercise_board)
+admin.site.register(Exercise)
