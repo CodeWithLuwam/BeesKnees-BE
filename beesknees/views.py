@@ -5,9 +5,14 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-#get all the drinks
+from django.shortcuts import render
+from django.http import Http404
+
+#get all the exercises
 #serialize them
 #return json
+
+
 
 @api_view(['GET', 'POST'])
 def exercise_list(request, format=None):
@@ -44,3 +49,7 @@ def exercise_detail(request, id, format=None):
     elif request.method == 'DELETE':
         exercise.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+
