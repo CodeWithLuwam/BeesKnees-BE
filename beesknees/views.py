@@ -1,4 +1,3 @@
-from django.http import JsonResponse
 from .models import Exercise
 from .serializers import ExerciseSerializer
 from rest_framework.decorators import api_view
