@@ -96,6 +96,7 @@ else:
             # 'ENGINE': 'django.db.backends.sqlite3', 
             'ENGINE': 'django.db.backends.postgresql', 
             'NAME': 'beesknees_api_db',
+            'PORT': '5432',
         }}
 
 
