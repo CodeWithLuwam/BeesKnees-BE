@@ -32,7 +32,8 @@ SECRET_KEY = 'django-insecure-&3dm%g1612lsf!j#!w-om$uz_at2bbzg^)ag1y$6s#8xb2b3a8
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'beesknees-be.onrender.com', 'localhost', '0.0.0.0']
 
 
 # Application definition
@@ -93,8 +94,8 @@ if not os.environ.get('DEBUG'):
 else:
     DATABASES = {
         'default': {
-            # 'ENGINE': 'django.db.backends.sqlite3', 
-            'ENGINE': 'django.db.backends.postgresql', 
+            'ENGINE': 'django.db.backends.sqlite3', 
+            # 'ENGINE': 'django.db.backends.postgresql', 
             'NAME': 'beesknees_api_db',
             'PORT': '5432',
         }}
