@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'beesknees.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-if not DEBUG:
+if not os.environ.get('DEBUG'):
     DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 else:
     DATABASES = {
