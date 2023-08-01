@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-&3dm%g1612lsf!j#!w-om$uz_at2bbzg^)ag1y$6s#8xb2b3a8
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['127.0.0.1', 'beesknees-be.onrender.com', 'localhost', '0.0.0.0']
 
 
@@ -92,17 +92,26 @@ WSGI_APPLICATION = 'beesknees.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-if not os.environ.get('DEBUG'):
-    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
-else:
-    DATABASES = {
-        'default': {
-            # 'ENGINE': 'django.db.backends.sqlite3', 
-            'ENGINE': 'django.db.backends.postgresql', 
-            'NAME': 'beesknees_api_db',
-            'PORT': '5432',
-        }}
+# if not os.environ.get('DEBUG'):
+#     DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+# else:
+#     DATABASES = {
+#         'default': {
+#             # 'ENGINE': 'django.db.backends.sqlite3', 
+#             'ENGINE': 'django.db.backends.postgresql', 
+#             'NAME': 'beesknees_api_db',
+#             # 'PORT': '5432',
+#         }}
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv("DB_NAME", 'beesknees_development'),
+        'USER': os.getenv("DB_USER", 'postgres'),
+        'PASSWORD': os.getenv("DB_PASSWORD", 'postgres'),
+        'HOST': os.getenv("DB_HOST", 'localhost')
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
